@@ -1,0 +1,9 @@
+{
+  "name": "@chatui-vue/core",
+  "version": "0.0.1",
+  "description": "The Vue3 library for Chatbot UI",
+  "main": "lib/index.js",
+  "repository": "git@github.com:kingshuaishuai/ChatUI.git",
+  "author": "yishuai <1244943563@qq.com>",
+  "license": "MIT"
+}
