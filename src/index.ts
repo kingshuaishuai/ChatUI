@@ -7,4 +7,8 @@ export type { ButtonProps, ButtonSize, ButtonVariant } from './components/Button
 export { Icon } from './components/Icon'
 export type { IconProps } from './components/Icon'
 
-export {} from './components/IconButton'
+export { IconButton } from './components/IconButton'
+export type { IconButtonProps } from './components/IconButton'
+
+export { Flex, FlexItem } from './components/Flex'
+export type { FlexProps, FlexItemProps } from './components/Flex'
