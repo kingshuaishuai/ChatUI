@@ -1,1 +1,10 @@
-@import '../components/Avatar/style';
+@import url('var');
+@import url('root');
+
+& when (@global-style = true) {
+  //  normalize css
+  @import url('./reboot');
+}
+
+@import url('./utils');
+@import url('../components/Avatar/style');

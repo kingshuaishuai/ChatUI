@@ -1,6 +1,7 @@
 import { Story, Meta } from '@storybook/vue3/types-6-0'
 import { Avatar, AvatarProps } from '../../src'
-import '../../src/components/Avatar/style.less'
+// import '../../src/components/Avatar/style.less'
+import '../../src/styles/index.less'
 import '@vue/babel-plugin-jsx'
 
 export default {
