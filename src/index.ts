@@ -12,3 +12,6 @@ export type { IconButtonProps } from './components/IconButton'
 
 export { Flex, FlexItem } from './components/Flex'
 export type { FlexProps, FlexItemProps } from './components/Flex'
+
+export { PullToRefresh } from './components/PullToRefresh'
+export type { PullToRefreshProps } from './components/PullToRefresh'

@@ -3,7 +3,9 @@
 node_modules
 storybook
 
+chat-ui-demo1
+
 # build
-dist
-es
-lib
+dist/*
+es/*
+lib/*

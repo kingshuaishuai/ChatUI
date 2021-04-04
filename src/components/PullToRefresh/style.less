@@ -1,0 +1,35 @@
+.PullToRefresh {
+  height: 100%;
+  overflow-y: scroll;
+  // 属性控制元素在移动设备上是否使用滚动回弹效果：https://developer.mozilla.org/zh-CN/docs/Web/CSS/-webkit-overflow-scrolling
+  -webkit-overflow-scrolling: touch;
+
+  &-fallback {
+    text-align: center;
+  }
+  &-loadMore {
+    padding: 8px;
+  }
+}
+
+.PullToRefresh-inner {
+  overflow: hidden;
+  min-height: 100%;
+}
+
+.PullToRefresh-indicator {
+  height: 25px;
+  margin-top: -25px;
+  color: grey;
+  text-align: center;
+  line-height: 25px;
+}
+
+.PullToRefresh-spinner {
+  color: var(--brand-2);
+  font-size: 24px;
+}
+
+.PullToRefresh-transition {
+  transition: transform 0.3s;
+}

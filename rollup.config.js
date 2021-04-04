@@ -1,3 +1,4 @@
+import commonjs from '@rollup/plugin-commonjs';
 import nodeResolve from '@rollup/plugin-node-resolve'
 import typescriptPlugin from '@rollup/plugin-typescript'
 import vuePlugin from 'rollup-plugin-vue'
@@ -28,6 +29,7 @@ export default {
     nodeResolve({
       extensions
     }),
+    commonjs(),
     babel({
       extensions,
       include: ['src/**/*'],

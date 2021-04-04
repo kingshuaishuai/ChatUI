@@ -7,7 +7,7 @@ const iconProps = {
     required: true
   },
   name: String,
-  spin: String
+  spin: Boolean
 }
 
 export type IconProps = ExtractPropTypes<typeof iconProps>
