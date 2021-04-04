@@ -5,7 +5,7 @@ export type ButtonVariant = 'text';
 
 export type ButtonSize = 'sm' | 'md' | 'lg';
 
-const buttonProps = {
+export const buttonProps = {
   label: String,
   color: {
     type: String,
