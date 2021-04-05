@@ -42,6 +42,15 @@ const pullToRefreshProps = {
 }
 
 export type PullToRefreshProps = ExtractPropTypes<typeof pullToRefreshProps>
+export type PullToRefreshScroller = {
+  scrollTo: ({ y, animated }: {
+    y: number;
+    animated: boolean;
+  }) => void
+  scrollToEnd: (animated?: boolean) => void
+  reset: () => void
+  handleLoadMore: () => void
+}
 
 type PullToRefreshState = {
   distance: number;
@@ -153,7 +162,6 @@ function usePullToRefresh(props: PullToRefreshProps) {
   }
 
   const reset = () => {
-    console.log('重置')
     state.distance = 0
     state.status = 'pending'
     setContentStyle(0);

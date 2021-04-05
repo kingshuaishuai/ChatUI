@@ -1,10 +1,11 @@
 import { defineComponent, ExtractPropTypes } from 'vue';
 import clsx from 'clsx'
+import { required } from '../../utils/fixVueProps';
 
 const iconProps = {
   type: {
     type: String,
-    required: true
+    required: required
   },
   name: String,
   spin: Boolean

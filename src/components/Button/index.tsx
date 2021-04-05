@@ -25,7 +25,7 @@ function composeClass(type?: string) {
   return type && `Btn--${type}`;
 }
 
-export const Button =  defineComponent({
+export const Button = defineComponent({
   name: 'Button',
   props: buttonProps,
   setup(props, { slots, attrs }) {
@@ -34,7 +34,6 @@ export const Button =  defineComponent({
         props.onClick(e);
       }
     }
-
 
     return () => {
       const { label, color, variant, size, block, disabled } = props

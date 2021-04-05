@@ -1,10 +1,14 @@
 import { defineComponent, ExtractPropTypes } from 'vue';
+import { required } from '../../utils/fixVueProps';
 import { Button, buttonProps } from '../Button'
 import { Icon } from '../Icon';
 
 const iconButtonProps = {
   ...buttonProps,
-  icon: String
+  icon: {
+    type: String,
+    required
+  }
 }
 
 export type IconButtonProps = ExtractPropTypes<typeof iconButtonProps>
