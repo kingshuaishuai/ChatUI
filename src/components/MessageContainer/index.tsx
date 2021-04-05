@@ -27,11 +27,9 @@ export const MessageContainer = defineComponent({
   setup(props, {slots}) {
     const scrollerRef = ref<PullToRefreshScroller | null>(null)
     const context = useContext()
-    onMounted(() => {
-      console.log('hh', scrollerRef.value)
-      context.expose({
-        ...scrollerRef.value
-      })
+    context.expose({
+      ...context.expose,
+      scroller: scrollerRef
     })
     return () => {
       const { onRefresh, onScroll, loadMoreText, messages, renderMessageContent, renderBeforeMessageList } = props
