@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { Component, DefineComponent, defineComponent, ExtractPropTypes, getCurrentInstance, nextTick, onMounted, onUnmounted, PropType, reactive, ref, useContext, VNode } from 'vue';
+import { Component, DefineComponent, defineComponent, ExtractPropTypes, nextTick, onMounted, onUnmounted, PropType, reactive, ref, VNode } from 'vue';
 import { canUse } from '../../utils/canUse';
 import { setTransform } from '../../utils/style';
 import { Icon } from '../Icon'
@@ -62,7 +62,7 @@ type PullToRefreshState = {
 export const PullToRefresh = defineComponent({
   name: 'PullToRefresh',
   props: pullToRefreshProps,
-  setup(props, {slots}) {
+  setup(props, {slots, expose}) {
 
     const {
       wrapperRef,
@@ -75,9 +75,8 @@ export const PullToRefresh = defineComponent({
       handleLoadMore,
     } = usePullToRefresh(props)
 
-    const ctx = useContext()
     // 向外暴露方法
-    ctx.expose({
+    expose({
       scrollTo,
       scrollToEnd,
       reset,

@@ -31,3 +31,16 @@ export type { MessageProps, SystemMessageProps, MessageType } from './components
 
 export { MessageContainer } from './components/MessageContainer'
 export type { MessageContainerProps } from './components/MessageContainer'
+
+export { Chat } from './components/Chat'
+export type { ChatProps } from './components/Chat'
+
+export { QuickReply, QuickReplies } from './components/QuickReplies'
+export type {
+  QuickReplyProps,
+  QuickRepliesProps,
+  QuickReplyItemProps,
+} from './components/QuickReplies'
+
+export { ScrollView } from './components/ScrollView'
+export type { ScrollViewProps } from './components/ScrollView'

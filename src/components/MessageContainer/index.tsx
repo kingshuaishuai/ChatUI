@@ -1,12 +1,12 @@
-import { defineComponent, ExtractPropTypes, onMounted, PropType, ref, useContext, VNode } from 'vue';
+import { defineComponent, ExtractPropTypes, onMounted, PropType, Ref, ref, useContext, VNode } from 'vue';
 import { required } from '../../utils/fixVueProps';
-import { Message, MessageProps } from '../Message/Message';
+import { Message, MessageType } from '../Message/Message';
 import { PullToRefresh } from '../PullToRefresh';
 import type { PullToRefreshScroller } from '../PullToRefresh'
 
 const messageContainerProps = {
   messages: {
-    type: Array as PropType<Array<MessageProps>>,
+    type: Array as PropType<Array<MessageType>>,
     default: []
   },
   loadMoreText: String,
@@ -14,9 +14,10 @@ const messageContainerProps = {
   onScroll: Function as PropType<(event: UIEvent) => void>,
   renderBeforeMessageList: Function as PropType<() => VNode>,
   renderMessageContent: {
-    type: Function as PropType<(message: MessageProps) => VNode>,
+    type: Function as PropType<(message: MessageType) => VNode>,
     required: required
-  }
+  },
+  scrollRef: Function as PropType<(ref: Ref<any>) => void>
 }
 
 export type MessageContainerProps = ExtractPropTypes<typeof messageContainerProps>
@@ -24,11 +25,9 @@ export type MessageContainerProps = ExtractPropTypes<typeof messageContainerProp
 export const MessageContainer = defineComponent({
   name: 'MessageContainer',
   props: messageContainerProps,
-  setup(props, {slots}) {
+  setup(props, {slots, expose}) {
     const scrollerRef = ref<PullToRefreshScroller | null>(null)
-    const context = useContext()
-    context.expose({
-      ...context.expose,
+    expose({
       scroller: scrollerRef
     })
     return () => {
