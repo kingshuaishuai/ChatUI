@@ -1,0 +1,31 @@
+.Input {
+  margin: 10px 0;
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 24px;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--gray-1);
+  background-color: var(--light-1);
+  background-clip: padding-box;
+  -webkit-tap-highlight-color: transparent;
+
+  &:focus {
+    outline: none;
+  }
+  &:focus:not([disabled]):not([readonly]) {
+    & ~ .Input-line {
+      &:before,
+      &:after {
+        width: 50%;
+      }
+    }
+  }
+  &::placeholder {
+    color: #ccc;
+  }
+}

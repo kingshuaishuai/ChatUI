@@ -72,7 +72,14 @@ const chatProps = {
    /**
     * 快捷短语的滚动回调
     */
-   onQuickReplyScroll: Function as PropType<() => void>
+   onQuickReplyScroll: Function as PropType<() => void>,
+   /**
+   * 发送消息回调
+   */
+  onSend: {
+    type: Function as PropType<(type: string, content: string) => void>,
+    required: required
+  }
 }
 
 export type ChatProps = ExtractPropTypes<typeof chatProps>
@@ -105,7 +112,8 @@ export const Chat = defineComponent({
         quickReplies,
         quickRepliesVisible,
         onQuickReplyClick,
-        onQuickReplyScroll
+        onQuickReplyScroll,
+        onSend
       } = props
       return (
         <LocaleProvider locale={locale} locales={locales}>
@@ -141,7 +149,7 @@ export const Chat = defineComponent({
                     />
                 )
               }
-              <Composer />
+              <Composer onSend={onSend}/>
             </div>
           </div>
         </LocaleProvider>
