@@ -36,7 +36,7 @@ export type ScrollViewProps = ExtractPropTypes<typeof scrollViewProps>
 export const ScrollView = defineComponent({
   name: 'ScrollView',
   props: scrollViewProps,
-  setup(props, {slots, expose, attrs}) {
+  setup(props, {slots, expose}) {
     const elRef = ref<HTMLElement|null>(null)
     const scrollerRef = ref<HTMLElement|null>(null)
     expose({
@@ -83,7 +83,6 @@ export const ScrollView = defineComponent({
             }
           )}
           ref={elRef}
-          {...attrs}
         >
           {hasControls && <IconButton class="ScrollView-control" icon="chevron-left" onClick={handlePreview} />}
           <div class="ScrollView-scroller" ref={scrollerRef}>

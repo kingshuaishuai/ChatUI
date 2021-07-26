@@ -16,7 +16,8 @@ export const buttonProps = {
   block: Boolean,
   loading: Boolean,
   disabled: Boolean,
-  onClick: Function as PropType<(event: MouseEvent) => void>
+  onClick: Function as PropType<(event: MouseEvent) => void>,
+  onMousedown: Function as PropType<(event: MouseEvent) => void>
 }
 
 export type ButtonProps = ExtractPropTypes<typeof buttonProps>
@@ -28,7 +29,7 @@ function composeClass(type?: string) {
 export const Button = defineComponent({
   name: 'Button',
   props: buttonProps,
-  setup(props, { slots, attrs }) {
+  setup(props, { slots }) {
     function handleClick(e: MouseEvent) {
       if (!props.disabled && !props.loading && props.onClick) {
         props.onClick(e);
@@ -36,7 +37,7 @@ export const Button = defineComponent({
     }
 
     return () => {
-      const { label, color, variant, size, block, disabled } = props
+      const { label, color, variant, size, block, disabled, onClick, ...others } = props
       return (
         <button
           class={clsx(
@@ -49,7 +50,7 @@ export const Button = defineComponent({
           type="button"
           disabled={disabled}
           onClick={handleClick}
-          {...attrs}
+          {...others}
         >
           { label || (slots.default && slots.default())}
         </button>

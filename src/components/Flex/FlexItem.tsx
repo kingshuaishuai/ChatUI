@@ -11,7 +11,7 @@ export type FlexItemProps = ExtractPropTypes<typeof flexItemProps>
 export const FlexItem = defineComponent({
   name: 'FlexItem',
   props: flexItemProps,
-  setup(props, {slots, attrs}) {
+  setup(props, {slots}) {
     return () => {
       const { flex, alignSelf, order } = props;
       return (
@@ -22,7 +22,6 @@ export const FlexItem = defineComponent({
             alignSelf,
             order
           }}
-          {...attrs}
         >
           { slots.default && slots.default()}
         </div>

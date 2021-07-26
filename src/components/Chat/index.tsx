@@ -1,4 +1,4 @@
-import { defineComponent, ExtractPropTypes, PropType, ref, VNode } from 'vue';
+import { defineComponent, ExtractPropTypes, inject, PropType, ref, VNode } from 'vue';
 import { required } from '../../utils/fixVueProps';
 import { MessageType } from '../Message';
 import { MessageContainer } from '../MessageContainer';
@@ -87,6 +87,7 @@ export type ChatProps = ExtractPropTypes<typeof chatProps>
 export const Chat = defineComponent({
   name: 'Chat',
   props: chatProps,
+  inheritAttrs: false,
   setup(props, {slots, expose, attrs}) {
     const chatRootRef = ref<HTMLElement|null>(null)
     const messageRef = ref<HTMLElement|null>(null)
@@ -95,6 +96,9 @@ export const Chat = defineComponent({
       ref: chatRootRef,
       messageRef
     })
+
+    const d = inject('localeContext')
+    console.log('localeContext', d)
     
     return () => {
       const {
@@ -149,7 +153,18 @@ export const Chat = defineComponent({
                     />
                 )
               }
-              <Composer onSend={onSend}/>
+              <Composer
+                toolbar={
+                  [
+                    {
+                      type: 'photo',
+                      title: 'Photo',
+                      icon: 'image',
+                    },
+                  ]
+                }
+                onSend={onSend}
+              />
             </div>
           </div>
         </LocaleProvider>

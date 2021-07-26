@@ -2,7 +2,7 @@ import { defineComponent, inject, PropType, provide, reactive, toRefs } from '@v
 import defaultLocales from './locales'
 
 const LOCALE_CONTEXT = 'localeContext'
-const DEFAULT_LOCALE = 'en-US';
+const DEFAULT_LOCALE = 'zh-CN';
 
 type ILocales = {
   [k: string]: any;

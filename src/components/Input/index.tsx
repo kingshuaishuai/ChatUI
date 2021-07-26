@@ -44,7 +44,7 @@ export type InputProps = ExtractPropTypes<typeof inputProps>
 export const Input = defineComponent({
   name: 'Input',
   props: inputProps,
-  setup(props, {attrs, emit, expose}) {
+  setup(props, {emit, expose}) {
     
     const inputRef = ref<HTMLInputElement | HTMLTextAreaElement | null>(null)
     const { updateRow } = useRows(props, inputRef)
@@ -84,7 +84,7 @@ export const Input = defineComponent({
         rows
       }
       return (
-        <Element ref={inputRef} value={props.modelValue} {...inputProps} {...attrs}/>
+        <Element ref={inputRef} value={props.modelValue} {...inputProps}/>
       )
     }
   }

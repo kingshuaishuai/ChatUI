@@ -16,7 +16,7 @@ export type IconProps = ExtractPropTypes<typeof iconProps>
 export const Icon = defineComponent({
   name: 'Icon',
   props: iconProps,
-  setup(props, {attrs}) {
+  setup(props) {
     return () => {
       const { type, spin, name } = props
       const ariaProps = typeof name === 'string' ? { 'aria-label': name } : { 'aria-hidden': true };
@@ -28,7 +28,6 @@ export const Icon = defineComponent({
             { 'is-spin': spin }
           )}
           {...ariaProps}
-          {...attrs}
         >
           <use xlinkHref={`#icon-${type}`}/>
         </svg>

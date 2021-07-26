@@ -48,7 +48,7 @@ export type FlexProps = ExtractPropTypes<typeof flexProps>
 export const Flex = defineComponent({
   name: 'Flex',
   props: flexProps,
-  setup(props, {slots, attrs}) {
+  setup(props, {slots}) {
 
     return () => {
       const {
@@ -75,7 +75,6 @@ export const Flex = defineComponent({
               'Flex--center': center,
             },            
           )}
-          {...attrs}
         >
           {slots.default && slots.default()}
         </Element>

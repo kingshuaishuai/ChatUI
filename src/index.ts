@@ -44,3 +44,9 @@ export type {
 
 export { ScrollView } from './components/ScrollView'
 export type { ScrollViewProps } from './components/ScrollView'
+
+export { Recorder } from './components/Recorder'
+export type { RecorderProps } from './components/Recorder'
+
+export { Toolbar } from './components/Toolbar'
+export type { ToolbarItemProps, ToolbarProps } from './components/Toolbar'
